@@ -21,6 +21,6 @@ class SessionTimeout
     {
 
         return $next($request);
-        //TODO: buat AutoLockscreen InsyaAllah sudah ada contoh tinggal aplikasikan.
+        //TODO: Database sudah, tinggal bikin script kodenya.
     }
 }
