@@ -67,9 +67,17 @@ class LoginController extends Controller
             return redirect()->route('login.locked')->with('errors','Password salah!');
         }
 
+        //session()->forget('lock-expires-at');
         session(['lock-expires-at' => now()->addMinutes($request->user()->getLockoutTime())]);
 
         return redirect(session('last_url') );
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        session()->forget('lock-expires-at');
+        return redirect()->route('login');
     }
 
     public function username()

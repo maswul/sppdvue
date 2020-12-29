@@ -6,7 +6,7 @@
             :loop="true"
             :reminders="[7]"
             :wait="5"
-            :duration="15"
+            :duration="900"
         />
     </div>
 </template>

@@ -16,9 +16,9 @@ class HomeC extends Controller
         return view('layouts.master');
     }
 
-    public function locked()
+    public function maslocked()
     {
-        session(['lock-expires-at' => now()->subMinutes(1)]);
+        session(['lock-expires-at' => now()]);
         return redirect()->route('login.locked');
     }
 }

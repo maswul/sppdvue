@@ -20,11 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeC::class, 'home'])->name('home');
-Route::get('lockscreen', function () {
-    Auth::logout();
-    return redirect()->route('login');
-})->name('login.anotheruser');
+Route::get('lockscreen', [\App\Http\Controllers\Auth\LoginController::class,'logout'])->name('login.anotheruser');
 
 Route::get('login/locked', [App\Http\Controllers\Auth\LoginController::class,'locked'])->middleware('auth')->name('login.locked');
-Route::get('/login/manual/locked.html', [\App\Http\Controllers\HomeC::class, 'locked']);
+Route::get('/login/manual/locked.html', [\App\Http\Controllers\HomeC::class, 'maslocked'])->name('login.kunci');
 Route::post('login/locked', [App\Http\Controllers\Auth\LoginController::class,'unlock'])->name('login.unlock');

@@ -48,11 +48,15 @@
     </div>
     <!-- /.lockscreen-item -->
     <div class="help-block text-center">
+        <p>Sekarang: {{ now() }}</p>
+        <p>Sesi: {{ session('lock-expires-at') }}</p>
+        <p>
         @if (session('errors'))
             {{ session('errors') }}
         @else
             Enter your password to retrieve your session
         @endif
+        </p>
     </div>
     <div class="text-center">
         <a href="{{ route('login.anotheruser') }}">Or sign in as a different user</a>

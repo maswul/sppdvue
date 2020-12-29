@@ -40,7 +40,10 @@ class SessionTimeout
         }
 
         session(['lock-expires-at' => now()->addMinutes($request->user()->getLockoutTime())]);
-        session(['last_url' => url()->current()]);
+        if (url()->current() != route('login.kunci'))
+        {
+            session(['last_url' => url()->current()]);
+        }
 
         return $next($request);
 
