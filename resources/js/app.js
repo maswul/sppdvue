@@ -8,6 +8,32 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+import VueProgressBar from 'vue-progressbar'
+
+Vue.use(VueProgressBar, {
+    color: 'rgb(143, 255, 199)',
+    failedColor: 'red',
+    height: '3px'
+});
+
+import VueRouter from 'vue-router';
+
+Vue.use(VueRouter);
+import routes from './router';
+
+const router = new VueRouter({
+    mode: 'history',
+    routes,
+    linkActiveClass: 'active',
+    linkExactActiveClass: "exact-active",
+});
+
+/**
+ * untuk cek apakah idle atau tidak? */
+import Vidle from 'v-idle'
+Vue.use(Vidle)
+
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -29,4 +55,5 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 
 const app = new Vue({
     el: '#app',
+    router
 });

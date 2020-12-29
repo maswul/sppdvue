@@ -25,6 +25,10 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome": "^1.1.8",
-        "admin-lte": "^3.1.0-rc"
+        "admin-lte": "^3.1.0-rc",
+        "idle-vue": "^2.0.5",
+        "v-idle": "^0.2.0",
+        "vue-progressbar": "^0.7.5",
+        "vue-router": "^3.4.9"
     }
 }
